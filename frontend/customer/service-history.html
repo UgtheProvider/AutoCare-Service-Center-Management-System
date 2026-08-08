@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehicle Service History — AutoCare v1.0</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=SFMono-Regular&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/forms.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar" id="app-sidebar"></aside>
+
+    <!-- Main Content Area -->
+    <div class="app-main">
+      
+      <!-- Top Header -->
+      <header class="app-header" id="app-header"></header>
+
+      <!-- Page Content -->
+      <main class="page-content">
+        
+        <!-- Header -->
+        <div class="page-header">
+          <div class="page-title-group">
+            <h1 class="page-title">Digital Vehicle Service History</h1>
+            <p class="page-subtitle">Inspect complete lifetime maintenance and repair logs for your vehicles.</p>
+          </div>
+        </div>
+
+        <!-- Vehicle Selection Bar Card -->
+        <div class="card" style="margin-bottom: var(--space-8);">
+          <div class="card-body">
+            <form id="history-search-form" class="flex items-end gap-4 flex-wrap">
+              <div class="form-group flex-1" style="margin-bottom: 0; min-width: 240px;">
+                <label for="select-my-vehicle" class="form-label">Select Registered Vehicle</label>
+                <select id="select-my-vehicle" class="form-control">
+                  <option value="">-- Choose from your vehicles --</option>
+                </select>
+              </div>
+
+              <div class="form-group flex-1" style="margin-bottom: 0; min-width: 240px;">
+                <label for="input-vehicle-number" class="form-label">Or Enter Vehicle Plate Number</label>
+                <input 
+                  type="text" 
+                  id="input-vehicle-number" 
+                  class="form-control font-mono" 
+                  placeholder="e.g. MH12AB1234"
+                  style="text-transform: uppercase;"
+                >
+              </div>
+
+              <button type="submit" class="btn btn-primary" id="btn-fetch-history">
+                <span>Search History</span>
+                <span class="spinner hidden" id="spinner-history"></span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- History Results Container -->
+        <div id="history-results-container">
+          <div class="empty-state">
+            <div class="empty-state-icon">📜</div>
+            <h3 class="empty-state-title">Select a Vehicle</h3>
+            <p class="empty-state-desc">Select one of your registered vehicles or enter a registration number above to view all past service logs.</p>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Footer -->
+      <footer class="app-footer">
+        <div><strong>AutoCare v1.0</strong> — Customer Portal</div>
+        <div>Smarter Service. Better Drives.</div>
+      </footer>
+
+    </div>
+  </div>
+
+  <script type="module" src="../js/customer/history.js"></script>
+</body>
+</html>

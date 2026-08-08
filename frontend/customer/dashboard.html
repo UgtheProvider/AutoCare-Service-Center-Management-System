@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Dashboard — AutoCare v1.0</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=SFMono-Regular&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/forms.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar" id="app-sidebar"></aside>
+
+    <!-- Main Content Area -->
+    <div class="app-main">
+      
+      <!-- Top Header -->
+      <header class="app-header" id="app-header"></header>
+
+      <!-- Page Content -->
+      <main class="page-content">
+        
+        <!-- Welcome Header -->
+        <div class="page-header">
+          <div class="page-title-group">
+            <h1 class="page-title" id="welcome-heading">Welcome, Customer</h1>
+            <p class="page-subtitle">Here is an overview of your vehicles and active service requests.</p>
+          </div>
+          <div class="page-actions">
+            <a href="add-vehicle.html" class="btn btn-secondary">
+              <span>+ Add Vehicle</span>
+            </a>
+            <a href="create-request.html" class="btn btn-primary">
+              <span>+ Book Service</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Live Statistics Cards -->
+        <div class="stats-grid" id="stats-container">
+          
+          <!-- Total Requests -->
+          <div class="stat-card">
+            <div class="stat-icon-wrapper stat-icon-primary">📋</div>
+            <div class="stat-info">
+              <div class="stat-value" id="stat-total-requests">—</div>
+              <div class="stat-label">Total Service Requests</div>
+            </div>
+          </div>
+
+          <!-- Active Requests -->
+          <div class="stat-card">
+            <div class="stat-icon-wrapper stat-icon-warning">⚙️</div>
+            <div class="stat-info">
+              <div class="stat-value" id="stat-active-requests">—</div>
+              <div class="stat-label">Active Requests in Progress</div>
+            </div>
+          </div>
+
+          <!-- Completed Requests -->
+          <div class="stat-card">
+            <div class="stat-icon-wrapper stat-icon-success">✅</div>
+            <div class="stat-info">
+              <div class="stat-value" id="stat-completed-requests">—</div>
+              <div class="stat-label">Completed Services</div>
+            </div>
+          </div>
+
+          <!-- Registered Vehicles -->
+          <div class="stat-card">
+            <div class="stat-icon-wrapper stat-icon-info">🚗</div>
+            <div class="stat-info">
+              <div class="stat-value" id="stat-total-vehicles">—</div>
+              <div class="stat-label">Registered Vehicles</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Recent Service Requests Section -->
+        <div class="card" style="margin-bottom: var(--space-8);">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Recent Service Requests</h2>
+              <p class="card-subtitle">Live tracking of your latest service requests</p>
+            </div>
+            <a href="requests.html" class="btn btn-secondary btn-sm">View All Requests &rarr;</a>
+          </div>
+
+          <div class="card-body" id="recent-requests-container" style="padding: 0;">
+            <div class="loading-container" id="loading-requests">
+              <span class="spinner spinner-dark spinner-lg"></span>
+              <p>Loading service requests from server...</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Registered Vehicles Section -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">My Registered Vehicles</h2>
+              <p class="card-subtitle">Manage your registered garage vehicles</p>
+            </div>
+            <a href="vehicles.html" class="btn btn-secondary btn-sm">Manage Vehicles &rarr;</a>
+          </div>
+
+          <div class="card-body" id="vehicles-preview-container">
+            <div class="loading-container" id="loading-vehicles">
+              <span class="spinner spinner-dark spinner-lg"></span>
+              <p>Loading vehicles from server...</p>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Footer -->
+      <footer class="app-footer">
+        <div><strong>AutoCare v1.0</strong> — Customer Portal</div>
+        <div>Smarter Service. Better Drives.</div>
+      </footer>
+
+    </div>
+  </div>
+
+  <script type="module" src="../js/customer/dashboard.js"></script>
+</body>
+</html>

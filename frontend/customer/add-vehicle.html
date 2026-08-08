@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Vehicle — AutoCare v1.0</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=SFMono-Regular&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/forms.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar" id="app-sidebar"></aside>
+
+    <!-- Main Content Area -->
+    <div class="app-main">
+      
+      <!-- Top Header -->
+      <header class="app-header" id="app-header"></header>
+
+      <!-- Page Content -->
+      <main class="page-content">
+        
+        <!-- Header -->
+        <div class="page-header">
+          <div class="page-title-group">
+            <h1 class="page-title">Register New Vehicle</h1>
+            <p class="page-subtitle">Add your automobile specifications to enable maintenance tracking.</p>
+          </div>
+          <div class="page-actions">
+            <a href="vehicles.html" class="btn btn-secondary">&larr; Back to Vehicles</a>
+          </div>
+        </div>
+
+        <!-- Vehicle Registration Form Card -->
+        <div class="card" style="max-width: 680px; margin: 0 auto;">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Vehicle Information</h2>
+              <p class="card-subtitle">All fields marked with * are required by the service center.</p>
+            </div>
+          </div>
+
+          <form id="add-vehicle-form" novalidate>
+            <div class="card-body">
+              
+              <!-- Notice / Error Banner -->
+              <div id="form-alert" class="hidden" style="margin-bottom: var(--space-4); padding: var(--space-3); border-radius: var(--radius-md); font-size: var(--font-size-xs);"></div>
+
+              <!-- Registration Number -->
+              <div class="form-group" id="group-veh-number">
+                <label for="input-veh-number" class="form-label form-label-required">
+                  Vehicle Registration / Plate Number
+                  <span class="form-label-hint">e.g. MH12AB1234 or DL01XY9999</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="input-veh-number" 
+                  class="form-control font-mono" 
+                  placeholder="Enter license plate number" 
+                  style="text-transform: uppercase;"
+                  required
+                >
+                <div class="form-error" id="error-veh-number">Please enter a valid registration number.</div>
+              </div>
+
+              <!-- Manufacturer & Model Grid -->
+              <div class="form-grid-2">
+                <div class="form-group" id="group-manufacturer">
+                  <label for="input-manufacturer" class="form-label form-label-required">Manufacturer / Make</label>
+                  <input 
+                    type="text" 
+                    id="input-manufacturer" 
+                    class="form-control" 
+                    placeholder="e.g. Toyota, Honda, Hyundai, BMW" 
+                    required
+                  >
+                  <div class="form-error" id="error-manufacturer">Manufacturer is required.</div>
+                </div>
+
+                <div class="form-group" id="group-model">
+                  <label for="input-model" class="form-label form-label-required">Model</label>
+                  <input 
+                    type="text" 
+                    id="input-model" 
+                    class="form-control" 
+                    placeholder="e.g. Camry, Civic, Creta, X5" 
+                    required
+                  >
+                  <div class="form-error" id="error-model">Model is required.</div>
+                </div>
+              </div>
+
+              <!-- Year & Fuel Type Grid -->
+              <div class="form-grid-2">
+                <div class="form-group" id="group-year">
+                  <label for="input-year" class="form-label">
+                    Manufacturing Year
+                    <span class="form-label-hint">Optional</span>
+                  </label>
+                  <input 
+                    type="number" 
+                    id="input-year" 
+                    class="form-control" 
+                    placeholder="e.g. 2022" 
+                    min="1950" 
+                    max="2030"
+                  >
+                </div>
+
+                <div class="form-group" id="group-fuel">
+                  <label for="select-fuel" class="form-label">Fuel Type</label>
+                  <select id="select-fuel" class="form-control">
+                    <option value="Petrol" selected>Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Electric">Electric</option>
+                    <option value="Hybrid">Hybrid</option>
+                    <option value="CNG">CNG</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="card-footer">
+              <a href="vehicles.html" class="btn btn-secondary">Cancel</a>
+              <button type="submit" id="btn-add-submit" class="btn btn-primary">
+                <span id="btn-add-text">Register Vehicle</span>
+                <span id="btn-add-spinner" class="spinner hidden"></span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </main>
+
+      <!-- Footer -->
+      <footer class="app-footer">
+        <div><strong>AutoCare v1.0</strong> — Customer Portal</div>
+        <div>Smarter Service. Better Drives.</div>
+      </footer>
+
+    </div>
+  </div>
+
+  <script type="module" src="../js/customer/add-vehicle.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Vehicles — AutoCare v1.0</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=SFMono-Regular&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/forms.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar" id="app-sidebar"></aside>
+
+    <!-- Main Content Area -->
+    <div class="app-main">
+      
+      <!-- Top Header -->
+      <header class="app-header" id="app-header"></header>
+
+      <!-- Page Content -->
+      <main class="page-content">
+        
+        <!-- Header -->
+        <div class="page-header">
+          <div class="page-title-group">
+            <h1 class="page-title">My Registered Vehicles</h1>
+            <p class="page-subtitle">Manage your fleet, view specifications, and schedule maintenance.</p>
+          </div>
+          <div class="page-actions">
+            <a href="add-vehicle.html" class="btn btn-primary">
+              <span>+ Register New Vehicle</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Vehicles Grid Container -->
+        <div id="vehicles-container">
+          <div class="loading-container">
+            <span class="spinner spinner-dark spinner-lg"></span>
+            <p>Loading your vehicles from server...</p>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Edit Vehicle Modal -->
+      <div id="edit-vehicle-modal" class="modal-backdrop">
+        <div class="modal-dialog">
+          <div class="modal-header">
+            <h3 class="modal-title">Update Vehicle Specifications</h3>
+            <button type="button" class="modal-close-btn" id="modal-edit-close">&times;</button>
+          </div>
+          <form id="edit-vehicle-form">
+            <div class="modal-body">
+              <input type="hidden" id="edit-vehicle-id">
+              
+              <!-- Vehicle Number (Read-only) -->
+              <div class="form-group">
+                <label class="form-label">Vehicle Registration Number</label>
+                <input type="text" id="edit-vehicle-number" class="form-control font-mono" readonly>
+                <div class="form-help">Vehicle registration numbers cannot be modified.</div>
+              </div>
+
+              <!-- Manufacturer -->
+              <div class="form-group">
+                <label for="edit-manufacturer" class="form-label form-label-required">Manufacturer</label>
+                <input type="text" id="edit-manufacturer" class="form-control" required>
+              </div>
+
+              <!-- Model -->
+              <div class="form-group">
+                <label for="edit-model" class="form-label form-label-required">Model</label>
+                <input type="text" id="edit-model" class="form-control" required>
+              </div>
+
+              <!-- Year & Fuel Type Grid -->
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="edit-year" class="form-label">Manufacturing Year</label>
+                  <input type="number" id="edit-year" class="form-control" min="1950" max="2030">
+                </div>
+
+                <div class="form-group">
+                  <label for="edit-fuel" class="form-label">Fuel Type</label>
+                  <select id="edit-fuel" class="form-control">
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Electric">Electric</option>
+                    <option value="Hybrid">Hybrid</option>
+                    <option value="CNG">CNG</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" id="modal-edit-cancel">Cancel</button>
+              <button type="submit" class="btn btn-primary" id="btn-save-vehicle">
+                <span>Save Changes</span>
+                <span class="spinner hidden" id="spinner-save-vehicle"></span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="app-footer">
+        <div><strong>AutoCare v1.0</strong> — Customer Portal</div>
+        <div>Smarter Service. Better Drives.</div>
+      </footer>
+
+    </div>
+  </div>
+
+  <script type="module" src="../js/customer/vehicles.js"></script>
+</body>
+</html>

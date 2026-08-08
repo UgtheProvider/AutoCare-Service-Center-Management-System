@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work Queue — AutoCare v1.0</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=SFMono-Regular&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/forms.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar" id="app-sidebar"></aside>
+
+    <!-- Main Content Area -->
+    <div class="app-main">
+      
+      <!-- Top Header -->
+      <header class="app-header" id="app-header"></header>
+
+      <!-- Page Content -->
+      <main class="page-content">
+        
+        <!-- Header -->
+        <div class="page-header">
+          <div class="page-title-group">
+            <h1 class="page-title">Technician Work Queue</h1>
+            <p class="page-subtitle">Execute maintenance tasks and progress service requests through authorized workflow steps.</p>
+          </div>
+        </div>
+
+        <!-- Filter & Search Toolbar -->
+        <div class="toolbar">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="input-search-queue" class="form-control search-input" placeholder="Search by vehicle plate, model, or ID...">
+          </div>
+
+          <div class="filter-group">
+            <select id="select-queue-filter" class="form-control" style="min-width: 200px;">
+              <option value="ACTIVE" selected>Active Jobs (Excluding Closed)</option>
+              <option value="ALL">All Assigned Jobs</option>
+              <option value="CREATED">Created</option>
+              <option value="RECEIVED">Received</option>
+              <option value="INSPECTION">Inspection</option>
+              <option value="AWAITING_APPROVAL">Awaiting Approval</option>
+              <option value="IN_PROGRESS">In Progress</option>
+              <option value="QUALITY_CHECK">Quality Check</option>
+              <option value="READY_FOR_PICKUP">Ready for Pickup</option>
+              <option value="CLOSED">Closed Only</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Work Queue Container -->
+        <div id="work-queue-container">
+          <div class="loading-container">
+            <span class="spinner spinner-dark spinner-lg"></span>
+            <p>Loading technician work queue...</p>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Job Details & Timeline Modal -->
+      <div id="job-detail-modal" class="modal-backdrop">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-header">
+            <div>
+              <h3 class="modal-title" id="modal-job-title">Job Details</h3>
+              <p class="card-subtitle" id="modal-job-subtitle"></p>
+            </div>
+            <button type="button" class="modal-close-btn" id="modal-job-close">&times;</button>
+          </div>
+          <div class="modal-body" id="modal-job-body">
+            <!-- Injected dynamically -->
+          </div>
+          <div class="modal-footer" id="modal-job-footer">
+            <button type="button" class="btn btn-secondary" id="modal-job-dismiss">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="app-footer">
+        <div><strong>AutoCare v1.0</strong> — Technician Portal</div>
+        <div>Smarter Service. Better Drives.</div>
+      </footer>
+
+    </div>
+  </div>
+
+  <script type="module" src="../js/employee/work-queue.js"></script>
+</body>
+</html>

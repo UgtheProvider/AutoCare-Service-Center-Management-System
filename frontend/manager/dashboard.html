@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manager Operational Dashboard — AutoCare v1.0</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=SFMono-Regular&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/forms.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar" id="app-sidebar"></aside>
+
+    <!-- Main Content Area -->
+    <div class="app-main">
+      
+      <!-- Top Header -->
+      <header class="app-header" id="app-header"></header>
+
+      <!-- Page Content -->
+      <main class="page-content">
+        
+        <!-- Header -->
+        <div class="page-header">
+          <div class="page-title-group">
+            <h1 class="page-title" id="welcome-manager">Operations Dashboard</h1>
+            <p class="page-subtitle">Center-wide metrics, workflow monitoring, and technician resource allocation.</p>
+          </div>
+          <div class="page-actions">
+            <a href="assignment.html" class="btn btn-primary">
+              <span>👥 Assign Technicians</span>
+            </a>
+            <a href="requests.html" class="btn btn-secondary">
+              <span>View All Requests</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- High-Level KPI Cards Grid -->
+        <div class="stats-grid">
+          
+          <!-- Total Requests -->
+          <div class="stat-card">
+            <div class="stat-icon-wrapper stat-icon-primary">📊</div>
+            <div class="stat-info">
+              <div class="stat-value" id="mgr-stat-total">—</div>
+              <div class="stat-label">Total Service Requests</div>
+            </div>
+          </div>
+
+          <!-- Unassigned Requests -->
+          <div class="stat-card">
+            <div class="stat-icon-wrapper stat-icon-danger">⚠️</div>
+            <div class="stat-info">
+              <div class="stat-value" id="mgr-stat-unassigned">—</div>
+              <div class="stat-label">Unassigned Requests</div>
+            </div>
+          </div>
+
+          <!-- In-Progress Workload -->
+          <div class="stat-card">
+            <div class="stat-icon-wrapper stat-icon-warning">⚡</div>
+            <div class="stat-info">
+              <div class="stat-value" id="mgr-stat-active">—</div>
+              <div class="stat-label">Active Center Workload</div>
+            </div>
+          </div>
+
+          <!-- Completed Requests -->
+          <div class="stat-card">
+            <div class="stat-icon-wrapper stat-icon-success">✅</div>
+            <div class="stat-info">
+              <div class="stat-value" id="mgr-stat-closed">—</div>
+              <div class="stat-label">Closed / Completed</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Comprehensive Status Breakdown Grid -->
+        <div class="card" style="margin-bottom: var(--space-8);">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Workflow Stage Breakdown</h2>
+              <p class="card-subtitle">Live request volume across all 8 governed service lifecycle stages</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="status-stats-grid">
+              
+              <div class="status-stat-card" style="border-left: 3px solid var(--status-created-border);">
+                <div class="status-stat-name">Created</div>
+                <div class="status-stat-value" id="stage-created">—</div>
+              </div>
+
+              <div class="status-stat-card" style="border-left: 3px solid var(--status-received-border);">
+                <div class="status-stat-name">Received</div>
+                <div class="status-stat-value" id="stage-received">—</div>
+              </div>
+
+              <div class="status-stat-card" style="border-left: 3px solid var(--status-inspection-border);">
+                <div class="status-stat-name">Inspection</div>
+                <div class="status-stat-value" id="stage-inspection">—</div>
+              </div>
+
+              <div class="status-stat-card" style="border-left: 3px solid var(--status-awaiting_approval-border);">
+                <div class="status-stat-name">Awaiting Approval</div>
+                <div class="status-stat-value" id="stage-awaiting-approval">—</div>
+              </div>
+
+              <div class="status-stat-card" style="border-left: 3px solid var(--status-in_progress-border);">
+                <div class="status-stat-name">In Progress</div>
+                <div class="status-stat-value" id="stage-in-progress">—</div>
+              </div>
+
+              <div class="status-stat-card" style="border-left: 3px solid var(--status-quality_check-border);">
+                <div class="status-stat-name">Quality Check</div>
+                <div class="status-stat-value" id="stage-quality-check">—</div>
+              </div>
+
+              <div class="status-stat-card" style="border-left: 3px solid var(--status-ready_for_pickup-border);">
+                <div class="status-stat-name">Ready For Pickup</div>
+                <div class="status-stat-value" id="stage-ready-for-pickup">—</div>
+              </div>
+
+              <div class="status-stat-card" style="border-left: 3px solid var(--status-closed-border);">
+                <div class="status-stat-name">Closed</div>
+                <div class="status-stat-value" id="stage-closed">—</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Unassigned Requests Quick Action Card -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Pending Technician Allocations</h2>
+              <p class="card-subtitle">Service requests waiting for employee assignment</p>
+            </div>
+            <a href="assignment.html" class="btn btn-secondary btn-sm">Manage Assignments &rarr;</a>
+          </div>
+
+          <div class="card-body" id="unassigned-preview-container" style="padding: 0;">
+            <div class="loading-container">
+              <span class="spinner spinner-dark spinner-lg"></span>
+              <p>Loading unassigned requests from server...</p>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Footer -->
+      <footer class="app-footer">
+        <div><strong>AutoCare v1.0</strong> — Manager Portal</div>
+        <div>Smarter Service. Better Drives.</div>
+      </footer>
+
+    </div>
+  </div>
+
+  <script type="module" src="../js/manager/dashboard.js"></script>
+</body>
+</html>

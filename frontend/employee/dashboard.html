@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technician Dashboard — AutoCare v1.0</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=SFMono-Regular&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/forms.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar" id="app-sidebar"></aside>
+
+    <!-- Main Content Area -->
+    <div class="app-main">
+      
+      <!-- Top Header -->
+      <header class="app-header" id="app-header"></header>
+
+      <!-- Page Content -->
+      <main class="page-content">
+        
+        <!-- Header -->
+        <div class="page-header">
+          <div class="page-title-group">
+            <h1 class="page-title" id="welcome-technician">Technician Workspace</h1>
+            <p class="page-subtitle">Manage assigned service requests and update repair lifecycle stages.</p>
+          </div>
+          <div class="page-actions">
+            <a href="work-queue.html" class="btn btn-primary">
+              <span>View Full Work Queue &rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Live Statistics Cards -->
+        <div class="stats-grid">
+          
+          <!-- Total Assigned -->
+          <div class="stat-card">
+            <div class="stat-icon-wrapper stat-icon-primary">🛠️</div>
+            <div class="stat-info">
+              <div class="stat-value" id="emp-stat-total">—</div>
+              <div class="stat-label">Total Assigned Jobs</div>
+            </div>
+          </div>
+
+          <!-- Active Assigned -->
+          <div class="stat-card">
+            <div class="stat-icon-wrapper stat-icon-warning">⚡</div>
+            <div class="stat-info">
+              <div class="stat-value" id="emp-stat-active">—</div>
+              <div class="stat-label">Active Work in Queue</div>
+            </div>
+          </div>
+
+          <!-- Completed -->
+          <div class="stat-card">
+            <div class="stat-icon-wrapper stat-icon-success">🏁</div>
+            <div class="stat-info">
+              <div class="stat-value" id="emp-stat-completed">—</div>
+              <div class="stat-label">Completed Jobs</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Active Jobs Section -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Priority Active Jobs</h2>
+              <p class="card-subtitle">Vehicles currently undergoing inspection, service, or quality checks</p>
+            </div>
+            <a href="work-queue.html" class="btn btn-secondary btn-sm">Open Work Queue</a>
+          </div>
+
+          <div class="card-body" id="active-jobs-preview" style="padding: var(--space-6);">
+            <div class="loading-container">
+              <span class="spinner spinner-dark spinner-lg"></span>
+              <p>Loading assigned active jobs from server...</p>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Footer -->
+      <footer class="app-footer">
+        <div><strong>AutoCare v1.0</strong> — Technician Portal</div>
+        <div>Smarter Service. Better Drives.</div>
+      </footer>
+
+    </div>
+  </div>
+
+  <script type="module" src="../js/employee/dashboard.js"></script>
+</body>
+</html>
